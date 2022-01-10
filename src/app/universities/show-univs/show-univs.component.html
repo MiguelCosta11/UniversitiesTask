@@ -1,0 +1,83 @@
+<div class="background footer_content">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-sm-4 title_style"></div>
+      <div class="col-sm-4 title_style seven">
+        <h1 class="align_title seven ">Universities Around the World</h1>
+      </div>
+    <div class="col-sm-4 title_style"></div>
+  </div>
+  </div>
+
+  <div class="dropdown dropdown_style">
+    <select class="btn btn-warning dropdown-toggle" [(ngModel)]="country" (change)="SingleUnivs(country)">
+      <option *ngFor="let dataItem of UnivsList" >
+        {{dataItem.country}}
+      </option>
+    </select>
+  </div>
+    
+  <div class="table_style">
+    <table class="table table-striped table-dark table_border">
+      <thead class="table_head">
+        <th class="table_head_style">University Name</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItemall of SingleUnivsList">
+          <td class="td_btn">{{dataItemall.name}} <button class="btn button_info" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getUnivClicked(dataItemall.name)">More information</button></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header modal_background_body">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal_background_body">
+          <div class="list-group" *ngFor="let dataItemClick of ClickedList">
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between" >
+                <h5 class="mb-1">University Name</h5>
+              </div>
+              <p class="mb-1">{{dataItemClick.name}}</p>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Country</h5>
+              </div>
+              <p class="mb-1">{{dataItemClick.country}}</p>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Alpha_Two_Code</h5>
+              </div>
+              <p class="mb-1">{{dataItemClick.alpha_two_code}}</p>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start modal_scroll">
+              <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-1">Web Pages</h5>
+              </div>
+              <p class="mb-1 align-items-stretch">{{dataItemClick.web_pages}}</p>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Domains</h5>
+              </div>
+              <p class="mb-1">{{dataItemClick.domains}}</p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer modal_background_body">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="change_footer">Miguel Costa</p>
+</footer>
+
